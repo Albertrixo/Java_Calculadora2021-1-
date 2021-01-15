@@ -120,6 +120,11 @@ public class Calculadora extends javax.swing.JFrame {
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jButton8.setText("=");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIgualActionPerformed(evt);
+            }
+        });
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jButton9.setText("8");
@@ -373,6 +378,22 @@ public class Calculadora extends javax.swing.JFrame {
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButtonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIgualActionPerformed
+        //el boton igual tiene que saber que funcion se pulse
+        //como ese valor se guardo en LA VARIABLE OPERACIÓN
+        //MONTO UN IF PARA QUE DEPENDIENDO DE ESE VALOR SE REALICEE
+        // la operacion correspondiente
+       double operando2 = Double.valueOf(display.getText());
+        
+       //si la operacion es la suma
+       if (operacion.equals("+")){
+            operando1 = operando1 + operando2;
+                 
+        }
+        //muestro el resultado por pantalla
+        display.setText(String.valueOf(operando1));
+    }//GEN-LAST:event_jButtonIgualActionPerformed
 
     /**
      * @param args the command line arguments
