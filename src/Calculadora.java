@@ -11,9 +11,10 @@
 public class Calculadora extends javax.swing.JFrame {
 
     //aqui van las variables de instancia
-    double operando1 = 0;   // almacena el primer número 
+    double operando1 = 0;
+    double operando2 = 0;// almacena el primer y segundo número 
+     double operando3 = operando1 - operando2;
     String operacion = "";  // almacena la operación que se ha pulsado 
-    
     
     /**
      * Creates new form Calculadora
@@ -36,7 +37,7 @@ public class Calculadora extends javax.swing.JFrame {
     public void operacionPulsada (String _operacion){
         //guardo el valor de la pantalla en la variable operando1
         operando1 = Double.valueOf(display.getText());
-        
+        operando3 = Double.valueOf(display.getText());
         //pongo a cero la pantalla
         display.setText("0");
        
@@ -194,7 +195,7 @@ public class Calculadora extends javax.swing.JFrame {
         jButton17.setText("*");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                jButtonMultiplicacionActionPerformed(evt);
             }
         });
 
@@ -299,8 +300,7 @@ public class Calculadora extends javax.swing.JFrame {
                             .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -312,8 +312,8 @@ public class Calculadora extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8))
-                        .addContainerGap(48, Short.MAX_VALUE))))
+                            .addComponent(jButton8))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -360,15 +360,15 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButtonDivisiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivisiónActionPerformed
-        // TODO add your handling code here:
+        operacionPulsada("/");
     }//GEN-LAST:event_jButtonDivisiónActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void jButtonMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplicacionActionPerformed
+        operacionPulsada("*");
+    }//GEN-LAST:event_jButtonMultiplicacionActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
+        operacionPulsada("-");
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButtonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSumaActionPerformed
@@ -387,10 +387,18 @@ public class Calculadora extends javax.swing.JFrame {
        double operando2 = Double.valueOf(display.getText());
         
        //si la operacion es la suma
-       if (operacion.equals("+")){
-            operando1 = operando1 + operando2;
-                 
-        }
+       if (operacion.equals("+")){  
+        operando1 = operando1 + operando2;
+       }
+        if (operacion.equals("-")){  
+         operando1 = operando1 - operando2;
+       }
+        if (operacion.equals("/")){  
+        operando1 = operando1 / operando2;
+       }
+       if (operacion.equals("*")){  
+        operando1 = operando1 * operando2;
+       }
         //muestro el resultado por pantalla
         display.setText(String.valueOf(operando1));
     }//GEN-LAST:event_jButtonIgualActionPerformed
