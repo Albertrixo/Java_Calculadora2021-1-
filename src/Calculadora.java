@@ -118,6 +118,11 @@ public class Calculadora extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jButton6.setText("DEL");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jButton8.setText("=");
@@ -402,6 +407,10 @@ public class Calculadora extends javax.swing.JFrame {
         //muestro el resultado por pantalla
         display.setText(String.valueOf(operando1));
     }//GEN-LAST:event_jButtonIgualActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        operacionPulsada("0");
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
